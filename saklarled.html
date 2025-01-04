@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Baiq Mufida Fitriyani</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    /* Styles for sections */
+    .section {
+      margin-top: 30px;
+    }
+    
+    .lamp-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .lamp {
+      position: relative;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background-color: gray;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .lamp.on {
+      background-color: rgb(231, 137, 240);
+      box-shadow: 0 0 20px yellow;
+    }
+
+    .lamp-label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 16px;
+      font-weight: bold;
+      color: black;
+    }
+
+    .button-container {
+      margin-top: 20px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #63a7f0;
+      color: white;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #0056b3;
+    }
+
+    .button:active {
+      background-color: #003f7f;
+    }
+
+    .info {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #555;
+    }
+    
+    /* Clock styles */
+    .clock {
+      width: 30rem;
+      height: 30rem;
+      border: 7px solid #282828;
+      border-radius: 50%;
+      position: relative;
+      box-shadow: -4px -4px 10px rgba(67,67,67,0.5),
+                  inset 4px 4px 10px rgba(0,0,0,0.5),
+                  inset -4px -4px 10px rgba(67,67,67,0.5),
+                  4px 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .outer-clock-face {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #c078b0;
+    }
+
+    .inner-clock-face {
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      width: 80%;
+      height: 80%;
+      background: #dad8d9;
+      border-radius: 50%;
+    }
+
+    .hand {
+      position: absolute;
+      width: 50%;
+      height: 6px;
+      background: #c793c3;
+      top: 50%;
+      right: 50%;
+      transform-origin: 100%;
+      transform: rotate(90deg);
+      border-radius: 6px;
+      transition: all 0.05s;
+      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+    }
+
+    .hour-hand {
+      width: 30%;
+      background: #ae7cc2;
+    }
+
+    .min-hand {
+      width: 40%;
+      height: 4px;
+      background: #82a2c2;
+    }
+
+    .second-hand {
+      width: 45%;
+      height: 2px;
+      background: #7e697c;
+    }
+
+    body {
+      background-color: #f0f0f0;
+    }
+
+    .app-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Portfolio Section -->
+<div class="container section">
+  <h1 class="text-center">Hello Guys, Perkenalkan Nama Saya BAIQ MUFIDA FITRIYANI</h1>
+  <p class="lead text-center">Saya mahasiswa semester 1 Fakultas Teknik Informatika, Sekolah Tinggi Ilmu Komputer Muhammadiyah Batam</p>
+</div>
+
+<!-- Interactive LED Switches Section -->
+<div class="container section">
+  <h2 class="text-center">Saklar LED</h2>
+  <div class="lamp-container">
+    <div id="lamp1" class="lamp"><span class="lamp-label">Lamp 1</span></div>
+    <div id="lamp2" class="lamp"><span class="lamp-label">Lamp 2</span></div>
+    <div id="lamp3" class="lamp"><span class="lamp-label">Lamp 3</span></div>
+    <div id="lamp4" class="lamp"><span class="lamp-label">Lamp 4</span></div>
+    <div id="lamp5" class="lamp"><span class="lamp-label">Lamp 5</span></div>
+  </div>
+  <div class="button-container text-center">
+    <button id="turnOnAll" class="button">Turn On All</button>
+    <button id="turnOffAll" class="button">Turn Off All</button>
+  </div>
+  <div class="info text-center">Klik lampunya yaa jika ingin menghidupkan!</div>
+</div>
+
+<!-- Analog Clock Section -->
+<div class="container section">
+  <h2 class="text-center">Jam Analog</h2>
+  <div class="clock">
+    <div class="outer-clock-face">
+      <div class="inner-clock-face">
+        <div class="hand hour-hand"></div>
+        <div class="hand min-hand"></div>
+        <div class="hand second-hand"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Vertical Layout Section -->
+<div class="container section">
+  <h2 class="text-center">Aplikasi Vertikal</h2>
+  <div class="app-container">
+    <div class="element">Elemen 1</div>
+    <div class="element">Elemen 2</div>
+    <div class="element">Elemen 3</div>
+    <div class="element">Elemen 4</div>
+    <div class="element">Elemen 5</div>
+    <button class="button">Tombol Aksi</button>
+  </div>
+</div>
+
+<script>
+  // Interactive LED Script
+  const lamps = document.querySelectorAll('.lamp');
+  const turnOnAllButton = document.getElementById('turnOnAll');
+  const turnOffAllButton = document.getElementById('turnOffAll');
+
+  lamps.forEach((lamp) => {
+    lamp.addEventListener('click', () => {
+      lamp.classList.toggle('on');
+    });
+  });
+
+  turnOnAllButton.addEventListener('click', () => {
+    lamps.forEach((lamp) => lamp.classList.add('on'));
+  });
+
+  turnOffAllButton.addEventListener('click', () => {
+    lamps.forEach((lamp) => lamp.classList.remove('on'));
+  });
+
+  // Analog Clock Script
+  const secondHand = document.querySelector('.second-hand');
+  const minHand = document.querySelector('.min-hand');
+  const hourHand = document.querySelector('.hour-hand');
+
+  function setDate() {
+    const now = new Date();
+    const seconds = now.getSeconds();
+    const minutes = now.getMinutes();
+    const hours = now.getHours();
+
+    const secondDegrees = ((seconds / 60) * 360) + 90;
+    const minuteDegrees = ((minutes / 60) * 360) + ((seconds / 60) * 6) + 90;
+    const hourDegrees = ((hours / 12) * 360) + ((minutes / 60) * 30) + 90;
+
+    secondHand.style.transform = `rotate(${secondDegrees}deg)`;
+    minHand.style.transform = `rotate(${minuteDegrees}deg)`;
+    hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+  }
+
+  setInterval(setDate, 1000);
+  setDate();
+</script>
+
+</body>
+</html>
